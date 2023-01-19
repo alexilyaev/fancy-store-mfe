@@ -30,7 +30,7 @@ function Products({ cartSummaryComponent: CartSummaryComponent }: Props) {
     }
 
     return (
-      <div className={styles.root}>
+      <div className={styles.products}>
         {products.map(product => {
           return (
             <ProductItem
@@ -45,7 +45,7 @@ function Products({ cartSummaryComponent: CartSummaryComponent }: Props) {
   };
 
   return (
-    <div>
+    <div className={styles.root}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <h2>Products</h2>
         {!!CartSummaryComponent && <CartSummaryComponent />}
