@@ -48,14 +48,19 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'fancy-store',
+      name: 'fancyStore',
       filename: 'remoteEntry.js',
       remotes: {
         fancyStoreProducts:
           'fancyStoreProducts@http://localhost:8081/remoteEntry.js',
         fancyStoreCart: 'fancyStoreCart@http://localhost:8082/remoteEntry.js',
       },
-      exposes: {},
+      exposes: {
+        './MainProvider': './src/components/MainProvider.tsx',
+        './PageContent': './src/components/PageContent.tsx',
+        './hooks': './src/hooks',
+        './types': './src/types',
+      },
       shared: {
         ...deps,
         react: {

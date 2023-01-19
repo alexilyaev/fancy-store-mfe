@@ -15,14 +15,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "fancyStoreProducts/counterStore": [
-        "../fancyStoreProducts/src/store/counter.js"
-      ],
       "fancyStoreProducts/bootstrap": [
         "../fancyStoreProducts/src/bootstrap.tsx"
       ],
-      "fancyStoreCart/bootstrap": ["../fancyStoreCart/src/bootstrap.tsx"]
+      "fancyStoreProducts/Products": [
+        "../fancyStoreProducts/src/components/Products.tsx"
+      ],
+      "fancyStoreCart/bootstrap": ["../fancyStoreCart/src/bootstrap.tsx"],
+      "fancyStoreCart/Cart": ["../fancyStoreCart/src/components/Cart.tsx"],
+      "fancyStoreCart/CartSummary": [
+        "../fancyStoreCart/src/components/CartSummary"
+      ]
     }
   },
   "include": ["src"]

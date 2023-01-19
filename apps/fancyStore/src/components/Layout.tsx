@@ -1,5 +1,12 @@
+import styles from './Layout.module.css';
+
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import { Link } from '@mui/material';
 
 import {
   productsUrlPath,
@@ -7,14 +14,34 @@ import {
   storeUrlPath,
 } from '../routing/constants';
 
+const pages = [
+  {
+    path: `/${storeUrlPath}`,
+    text: 'Store',
+  },
+  {
+    path: `/${productsUrlPath}`,
+    text: 'Products',
+  },
+  {
+    path: `/${cartUrlPath}`,
+    text: 'Cart',
+  },
+];
+
 export function Layout() {
   return (
     <>
-      <nav>
-        <Link to={`/${storeUrlPath}`}>Store</Link>
-        <Link to={`/${productsUrlPath}`}>Products</Link>
-        <Link to={`/${cartUrlPath}`}>Cart</Link>
-      </nav>
+      <AppBar position="static">
+        <Toolbar className={styles.appBar} disableGutters>
+          {pages.map(page => (
+            <NavLink key={page.path} to={page.path}>
+              {page.text}
+            </NavLink>
+          ))}
+        </Toolbar>
+      </AppBar>
+
       <Outlet />
     </>
   );

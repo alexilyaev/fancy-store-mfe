@@ -1,24 +1,27 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import MainProvider from 'fancyStore/MainProvider';
 import { NavigationManager } from '../components/NavigationManager';
-import { Page1 } from '../pages/Products';
+import ProductsPage from '../pages/ProductsPage';
 
 export const routes = [
   {
     path: '/',
     element: (
-      <NavigationManager>
-        <Outlet />
-      </NavigationManager>
+      <MainProvider>
+        <NavigationManager>
+          <Outlet />
+        </NavigationManager>
+      </MainProvider>
     ),
     children: [
       {
         index: true,
-        element: <Page1 />,
+        element: <ProductsPage />,
       },
       {
         path: 'products',
-        element: <Page1 />,
+        element: <ProductsPage />,
       },
     ],
   },

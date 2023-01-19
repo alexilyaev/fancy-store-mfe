@@ -1,14 +1,20 @@
 import React from 'react';
-import { useCounter } from 'fancyStoreProducts/counterStore';
+import Products from 'fancyStoreProducts/Products';
+import Cart from 'fancyStoreCart/Cart';
+import CartSummary from 'fancyStoreCart/CartSummary';
+import { Box } from '@mui/material';
+import PageContent from './PageContent';
 
 function FancyStore() {
-  const { count, inc, dec } = useCounter();
-
   return (
-    <div>
-      <h1>FancyStore</h1>
-      <h2>Count: {count}</h2>
-    </div>
+    <PageContent>
+      <h1>Fancy Store</h1>
+
+      <Box display="flex" gap="20px">
+        <Products cartSummaryComponent={CartSummary} />
+        <Cart />
+      </Box>
+    </PageContent>
   );
 }
 

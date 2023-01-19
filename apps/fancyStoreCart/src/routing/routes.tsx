@@ -1,24 +1,27 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import MainProvider from 'fancyStore/MainProvider';
 import { NavigationManager } from '../components/NavigationManager';
-import { Cart } from '../pages/Cart';
+import CartPage from '../pages/CartPage';
 
 export const routes = [
   {
     path: '/',
     element: (
-      <NavigationManager>
-        <Outlet />
-      </NavigationManager>
+      <MainProvider>
+        <NavigationManager>
+          <Outlet />
+        </NavigationManager>
+      </MainProvider>
     ),
     children: [
       {
         index: true,
-        element: <Cart />,
+        element: <CartPage />,
       },
       {
         path: 'cart',
-        element: <Cart />,
+        element: <CartPage />,
       },
     ],
   },

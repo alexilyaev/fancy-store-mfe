@@ -50,10 +50,12 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'fancyStoreProducts',
       filename: 'remoteEntry.js',
-      remotes: {},
+      remotes: {
+        fancyStore: 'fancyStore@http://localhost:8080/remoteEntry.js',
+      },
       exposes: {
         './bootstrap': './src/bootstrap',
-        './counterStore': './src/store/counter.js',
+        './Products': './src/components/Products.tsx',
       },
       shared: {
         ...deps,

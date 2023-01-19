@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const fancyStoreCartBasename = `/${cartUrlPath}`;
 
-export default function () {
+function FancyStoreCart() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,3 +62,5 @@ export default function () {
 
   return <div ref={wrapperRef} id="fancyStoreCart-mfe" />;
 }
+
+export default FancyStoreCart;

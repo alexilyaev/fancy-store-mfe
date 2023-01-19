@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const fancyStoreProductsBasename = `/${productsUrlPath}`;
 
-export default () => {
+function FancyStoreProducts() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,4 +64,6 @@ export default () => {
   }, [location]);
 
   return <div ref={wrapperRef} id="fancyStoreProducts-mfe" />;
-};
+}
+
+export default FancyStoreProducts;
