@@ -2,17 +2,6 @@ module.exports = {
   root: true,
 
   overrides: [
-    // Client files
-    {
-      files: ['apps/**/src/*.{j,t}s?(x)'],
-      extends: ['eslint:recommended'],
-      plugins: ['react-hooks'],
-      rules: {
-        'react-hooks/rules-of-hooks': 1,
-        'react-hooks/exhaustive-deps': 1,
-      },
-    },
-
     /**
      * TypeScript files.
      *
@@ -22,11 +11,14 @@ module.exports = {
     {
       files: ['apps/**/src/**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended'],
+      plugins: ['@typescript-eslint', 'react-hooks'],
+      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
       rules: {
         // It's best in some cases to let the TS compiler infer the return type.
         '@typescript-eslint/explicit-module-boundary-types': 0,
+
+        'react-hooks/rules-of-hooks': 1,
+        'react-hooks/exhaustive-deps': 1,
       },
     },
   ],
