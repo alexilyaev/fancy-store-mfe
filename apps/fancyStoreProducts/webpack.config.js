@@ -49,9 +49,9 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'fancyStoreProducts',
-      filename: 'remoteEntry.js',
+      filename: 'productsEntry.js',
       remotes: {
-        fancyStore: 'fancyStore@http://localhost:8080/remoteEntry.js',
+        fancyStore: 'fancyStore@http://localhost:8080/storeEntry.js',
       },
       exposes: {
         './bootstrap': './src/bootstrap',

@@ -49,11 +49,11 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'fancyStore',
-      filename: 'remoteEntry.js',
+      filename: 'storeEntry.js',
       remotes: {
         fancyStoreProducts:
-          'fancyStoreProducts@http://localhost:8081/remoteEntry.js',
-        fancyStoreCart: 'fancyStoreCart@http://localhost:8082/remoteEntry.js',
+          'fancyStoreProducts@http://localhost:8081/productsEntry.js',
+        fancyStoreCart: 'fancyStoreCart@http://localhost:8082/cartEntry.js',
       },
       exposes: {
         './MainProvider': './src/components/MainProvider.tsx',
